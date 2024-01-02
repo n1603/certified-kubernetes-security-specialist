@@ -62,7 +62,7 @@ kubectl config set-credentials john \
     --embed-certs=true \
     --kubeconfig=john.kubeconfig
 
-# set config context to newly created kubeconfig fir john user
+# set config context to newly created kubeconfig for john user
 #
 kubectl config set-context default \
     --cluster=kubeadm \
