@@ -25,6 +25,7 @@ spec:
 EOF
 ```
 ```sh
+kubectl get CertificateSigningRequest
 kubectl certificate approve john
 kubectl get csr john -o jsonpath='{.status.certificate}' | base64 --decode > john.crt
 ```
