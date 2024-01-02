@@ -46,18 +46,21 @@ su - john
 export SERVER_IP=
 ```
 ```sh
+# add CA cert in kubeconfig file
 kubectl config set-cluster kubeadm \
     --certificate-authority=/home/john/ca.crt \
     --embed-certs=true \
     --server=https://${SERVER_IP}:6443 \
     --kubeconfig=john.kubeconfig
 
+# add john key and cert to kubeconfig file for john user
 kubectl config set-credentials john \
     --client-certificate=john.crt \
     --client-key=john.key \
     --embed-certs=true \
     --kubeconfig=john.kubeconfig
 
+# set config context to newly created kubeconfig fir jihn user
 kubectl config set-context default \
     --cluster=kubeadm \
     --user=john \
